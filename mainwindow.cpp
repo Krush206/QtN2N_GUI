@@ -159,13 +159,13 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(socket, SIGNAL(readyRead()), this, SLOT(readyRead()));
     connect(socket, SIGNAL(connected()), this, SLOT(connected()));
 
-    ui->lineEdit_1->setMaxLength(15);
-    ui->lineEdit_2->setMaxLength(4);
-    ui->lineEdit_3->setMaxLength(15);
-    ui->lineEdit_4->setMaxLength(15);
+    ui->lineEdit_1->setMaxLength(32);
+    ui->lineEdit_2->setMaxLength(5);
+    ui->lineEdit_3->setMaxLength(32);
+    ui->lineEdit_4->setMaxLength(32);
     ui->lineEdit_5->setMaxLength(15);
     ui->lineEdit_6->setMaxLength(15);
-    ui->lineEdit_7->setMaxLength(4);
+    ui->lineEdit_7->setMaxLength(5);
 
     ui->userListWidget->setDisabled(true);
     ui->sayLineEdit->setDisabled(true);
@@ -1413,11 +1413,12 @@ void MainWindow::on_connectToHost()
     if(!socket->waitForConnected(1000))
         {
             qDebug() << "Error: " << socket->errorString();
-            QString server_messege = "Server not found!";
+            QString server_messege = "Can't connect to chat!";
             ui->roomTextEdit->moveCursor(QTextCursor::End);
             ui->roomTextEdit->setTextColor(Qt::red);
             ui->roomTextEdit->insertPlainText("\n" + server_messege);
             ui->roomTextEdit->verticalScrollBar()->setValue(ui->roomTextEdit->verticalScrollBar()->maximum());
+            timer->stop();
         }
     else
         {
