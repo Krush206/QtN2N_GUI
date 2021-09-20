@@ -124,7 +124,7 @@
          <string>88.86.108.50</string>
         </property>
         <property name="maxLength">
-         <number>15</number>
+         <number>32</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_2">
@@ -194,7 +194,7 @@
          <string>games</string>
         </property>
         <property name="maxLength">
-         <number>15</number>
+         <number>32</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_4">
@@ -229,7 +229,7 @@
          <string>games</string>
         </property>
         <property name="maxLength">
-         <number>15</number>
+         <number>32</number>
         </property>
         <property name="echoMode">
          <enum>QLineEdit::Password</enum>
