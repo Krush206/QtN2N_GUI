@@ -1413,11 +1413,12 @@ void MainWindow::on_connectToHost()
     if(!socket->waitForConnected(1000))
         {
             qDebug() << "Error: " << socket->errorString();
-            QString server_messege = "Server not found!";
+            QString server_messege = "Can't connect to chat!";
             ui->roomTextEdit->moveCursor(QTextCursor::End);
             ui->roomTextEdit->setTextColor(Qt::red);
             ui->roomTextEdit->insertPlainText("\n" + server_messege);
             ui->roomTextEdit->verticalScrollBar()->setValue(ui->roomTextEdit->verticalScrollBar()->maximum());
+            timer->stop();
         }
     else
         {
